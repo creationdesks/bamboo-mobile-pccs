@@ -61,7 +61,6 @@ Text Domain:	 booastra
 [class^="Bicon-"], [class*=" Bicon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'Bamboo-icons' !important;
-  speak: never;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -403,7 +402,7 @@ Text Domain:	 booastra
 
 .elementor-1102 .device-container{
 	height: 210px;
-	margin-left: -50px
+	margin-left: -50px;
 	margin-bottom: 100px;
 }
 .elementor-1102 .container-inner:hover .stab_details{
@@ -1355,7 +1354,7 @@ body:not(.rtl) #mobiCart .elementor-menu-cart__toggle .elementor-button-icon[dat
 }
 .elementor-51308 .elementor-element.elementor-element-408ca23 .elementor-icon-box-icon{
 	display: inline-block;
-    float: right;
+    /*float: right;*/
     margin-left: 10px;
     margin-top: -4px;
 }
