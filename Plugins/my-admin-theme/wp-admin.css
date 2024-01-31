@@ -1,0 +1,223 @@
+/* my-admin-theme */
+
+.role-site-manager #wp-admin-bar-wp-logo{
+		display:none !important;
+	}
+.role-site-manager .myfooter-wrap {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 10px 20px;
+}
+.role-site-manager #wpfooter{
+	display:none !important;
+}
+/*.role-site-manager #wpadminbar{
+	background:#028dff;
+}*/	
+.role-site-manager #wpbody, .role-site-manager #wpwrap {
+	background:#f5f5f5 !important;
+}
+
+.role-site-manager #adminmenu, .role-site-manager #adminmenu .wp-submenu, .role-site-manager #adminmenuback, .role-site-manager #adminmenuwrap {
+	background-color:#000 !important;
+	width:100% !important;
+}
+
+.role-site-manager #adminmenu .wp-submenu:hover{
+	background-color:#333 !important;
+}
+
+.role-site-manager #adminmenu div.separator {
+    height: 0px;
+}
+
+.role-site-manager .sticky-menu #adminmenuwrap {
+    position: relative !important;
+    width: 100% !important;
+    display: block !important;
+}
+
+.role-site-manager #adminmenuback {
+    position: relative !important;
+}
+
+.role-site-manager #adminmenu li.menu-top {
+    min-height: 34px;
+    position: relative !important;
+    display: inline-block !important;
+    width: 160px !important;
+    float: left !important;
+    margin-top: 0;
+	height:50px;
+	background-color:#000 !important;
+	z-index:9999999;
+}
+.role-site-manager #adminmenu li.menu-top:hover{
+	background-color:#000 !important;
+	height:53px;
+}
+.role-site-manager #adminmenu {
+    list-style: none;
+    display: inline-block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0;
+    top: 0;
+	height:50px;
+}
+.role-site-manager #adminmenu div.wp-menu-name{
+	height:28px !important;
+}
+
+.role-site-manager #adminmenu .wp-submenu-head, .role-site-manager #adminmenu a.menu-top{
+	padding: 10px 0 0;
+}
+.role-site-manager .wrap {
+    margin: 70px 20px 0 2px;
+}
+
+.role-site-manager #adminmenu li.wp-menu-separator {
+    height: 0px !important;
+    padding: 0;
+    margin: 0 0 0px !important;
+    cursor: inherit;
+}
+
+.role-site-manager #wpcontent, #wpfooter {
+    margin-left: 0px !important;
+}
+
+.role-site-manager #collapse-button .collapse-button-icon, .role-site-manager #collapse-button .collapse-button-label{
+	width:160px !important;
+	padding-left:10px;
+}
+.role-site-manager #adminmenu li{
+	float:left !important;
+}
+
+.role-site-manager #adminmenu .wp-submenu {
+    list-style: none;
+    position: relative !important; 
+    top: -1000em;
+    overflow: hidden !important;
+    word-wrap: break-word;
+	display: inline-grid !important;
+	left:0;
+}
+
+.role-site-manager.folded #adminmenu .wp-menu-name {
+    position: absolute;
+    left: -9999px;
+}
+
+.role-site-manager #collapse-button{
+	color: #333 !important;
+	margin:10px 0 0;
+}
+
+.role-site-manager ul#adminmenu a.wp-has-current-submenu:after, .role-site-manager ul#adminmenu>li.current>a.current:after{
+	right: 0 !important;
+    border: 12px solid transparent !important;
+    content: " " !important;
+    height: 0 !important;
+    width: 0 !important;
+    position: absolute !important;
+    pointer-events: none !important;
+    border-right-color: #f1f1f1 !important;
+    top: 50% !important;
+   margin-top: -12px !important;
+}
+
+.role-site-manager #wpbody-content {
+    padding-bottom: 65px !important; 
+    padding-top: 65px !important;
+}
+
+.role-site-manager #contextual-help-link, .role-site-manager #contextual-help-link-wrap{
+	display:none !important;
+}
+
+.role-site-manager #collapse-button .collapse-button-icon:after{
+	text-align:left !important;
+}
+
+.role-site-manager #wp-admin-bar-wp-logo{
+		display:none !important;
+	}
+.role-site-manager #wp-admin-bar-wpseo-menu{
+		display:none !important;
+	}
+.role-site-manager #wp-admin-bar-my-sites{
+		display:none !important;
+}
+
+.role-site-manager .woocommerce-message	{
+	display:none !important;
+}
+
+.role-site-manager.folded #adminmenu a.menu-top {
+    height: 44px !important;
+}
+
+.role-site-manager #adminmenu .wp-has-current-submenu .wp-submenu .wp-submenu-head, .role-site-manager #adminmenu .wp-menu-arrow, .role-site-manager #adminmenu .wp-menu-arrow div, .role-site-manager #adminmenu li.current a.menu-top, .role-site-manager #adminmenu li.wp-has-current-submenu a.wp-has-current-submenu, .role-site-manager.folded #adminmenu li.current.menu-top, .role-site-manager.folded #adminmenu li.wp-has-current-submenu{
+	background: #000 !important;
+}
+
+.role-site-manager #collapse-menu{
+	display:none !important;
+}
+
+.woocommerce table.form-table select{
+	height:100% !important;
+}
+
+.role-site-manager #update-nag, .role-site-manager .update-nag{
+	display:none !important;
+}
+
+.role-site-manager #adminmenu #toplevel_page_wpcf7{
+	display:none !important;
+}
+
+.role-site-manager #wpadminbar #wp-admin-bar-new-content #wp-admin-bar-new-elementor_library, .role-site-manager #wpadminbar #wp-admin-bar-new-content #wp-admin-bar-new-tfba_twitter_feed, .role-site-manager #wpadminbar #wp-admin-bar-new-content #wp-admin-bar-new-aoc_popup, .role-site-manager #wpadminbar #wp-admin-bar-comments{
+	display:none !important;
+}
+
+#wpwrap .myfooter-wrap{
+	text-align:center !important;
+	margin-bottom: -46px;
+}
+
+.superadmin #footer-left.alignleft {
+	float:right !important;
+}
+
+.role-site-manager #wpadminbar li:hover .ab-item::before{
+	color:#A2D048;
+}
+.role-site-manager #wpadminbar .ab-top-menu > li.hover > .ab-item, .role-site-manager #wpadminbar.nojq .quicklinks .ab-top-menu > li > .ab-item:focus, .role-site-manager #wpadminbar:not(.mobile) .ab-top-menu > li:hover > .ab-item, .role-site-manager #wpadminbar:not(.mobile) .ab-top-menu > li > .ab-item:focus{
+	color:#A2D048;
+}
+.role-site-manager #wpadminbar:not(.mobile) > #wp-toolbar a:focus span.ab-label, .role-site-manager #wpadminbar:not(.mobile) > #wp-toolbar li:hover span.ab-label, .role-site-manager #wpadminbar > #wp-toolbar li.hover span.ab-label{
+	color:#A2D048;
+}
+
+.role-site-manager #wpadminbar .quicklinks .ab-sub-wrapper .menupop.hover > a, .role-site-manager #wpadminbar .quicklinks .menupop ul li a:focus, .role-site-manager #wpadminbar .quicklinks .menupop ul li a:focus strong, .role-site-manager #wpadminbar .quicklinks .menupop ul li a:hover, .role-site-manager #wpadminbar .quicklinks .menupop ul li a:hover strong, .role-site-manager #wpadminbar .quicklinks .menupop.hover ul li a:focus, .role-site-manager #wpadminbar .quicklinks .menupop.hover ul li a:hover, .role-site-manager #wpadminbar .quicklinks .menupop.hover ul li div[tabindex]:focus, .role-site-manager #wpadminbar .quicklinks .menupop.hover ul li div[tabindex]:hover, .role-site-manager #wpadminbar li #adminbarsearch.adminbar-focused::before, .role-site-manager #wpadminbar li .ab-item:focus .ab-icon::before, .role-site-manager #wpadminbar li .ab-item:focus::before, .role-site-manager #wpadminbar li a:focus .ab-icon::before, #wpadminbar li.hover .ab-icon::before, .role-site-manager #wpadminbar li.hover .ab-item::before, .role-site-manager #wpadminbar li:hover #adminbarsearch::before, .role-site-manager #wpadminbar li:hover .ab-icon::before, #wpadminbar li:hover .ab-item::before, .role-site-manager #wpadminbar.nojs .quicklinks .menupop:hover ul li a:focus, .role-site-manager #wpadminbar.nojs .quicklinks .menupop:hover ul li a:hover {
+	color:#A2D048;
+}
+
+.role-site-manager #adminmenu .wp-submenu a:focus, .role-site-manager #adminmenu .wp-submenu a:hover, .role-site-manager #adminmenu a:hover, .role-site-manager #adminmenu li.menu-top > a:focus{
+	color:#A2D048;
+}
+.role-site-manager #adminmenu li.menu-top:hover, .role-site-manager #adminmenu li.opensub > a.menu-top, .role-site-manager #adminmenu li > a.menu-top:focus{
+	color:#A2D048;
+}
+.role-site-manager #adminmenu li a:focus div.wp-menu-image::before, .role-site-manager #adminmenu li.opensub div.wp-menu-image::before, .role-site-manager #adminmenu li:hover div.wp-menu-image::before{
+	color:#A2D048;
+}
+.woocommerce-page .wp-has-current-submenu::after{
+	border: 8px solid transparent !important;
+	border-right-color: transparent !important;
+}
+	
