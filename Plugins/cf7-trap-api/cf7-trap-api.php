@@ -24,7 +24,7 @@ function bamboo_user_signin_cf7_data( $form_data ) {
 	/* HEADER LOGIN FORM API - REDIRECTS TO ACCOUNT OVERVIEW */
    
 	if ($form_id === 18717){
-		 // $upload_dir = home_url( '/bamboo-mobile/wp-content/uploads/cfdb7_uploads' ); 
+		 
 		 
 		$email = sanitize_text_field($form_data['useremail']);
 		$password = sanitize_text_field($form_data['password-user']);
@@ -38,14 +38,14 @@ function bamboo_user_signin_cf7_data( $form_data ) {
 	   
 		$email = sanitize_text_field($data['email']);
 			
-		$url = 'https://development.pccsuk.com/bamboo_development/RestAPI/BambooMobileViewAPI/';
+		$url = '/bamboo_development/RestAPI/BambooMobileViewAPI/';
 		
 		$data = wp_json_encode( $data );
 		
 		$args = [
 			'headers' => array(
 			  'Content-Type' => 'application/json',
-			   'Authorization' => 'Basic cGNjc1N5bmM6c2xfZ2xvYmFsX2lkXzAwMQ==',
+			   'Authorization' => 'Basic xxxxxxxxxxxxxx',
 			),
 			'method' => 'POST',
 			'body'   => $data,
@@ -72,10 +72,10 @@ function bamboo_user_signin_cf7_data( $form_data ) {
 				$_SESSION['user_name'] = $result->RawData->Name;
 				$tokenKey = $result->RawData->TokenisedKey;
 				print_r($tokenKey);
-				header("Location: https://development.pccsuk.com/bamboo_development/BambooMobile/getUserTokenusedData/$tokenKey/");
+				header("Location: /bamboo_development/BambooMobile/getUserTokenusedData/$tokenKey/");
 				exit();
 				} else {
-				header("Location: https://www.skylinemicrosites.co.uk/bamboo-mobile/?account=access-fail");
+				header("Location: /bamboo-mobile/?account=access-fail");
 				exit();
 				}
 	}
@@ -96,14 +96,14 @@ function bamboo_user_signin_cf7_data( $form_data ) {
 	   
 		$email = sanitize_text_field($data['email']);
 			
-		$url = 'https://development.pccsuk.com/bamboo_development/RestAPI/BambooMobileViewAPI/';
+		$url = '/bamboo_development/RestAPI/BambooMobileViewAPI/';
 		
 		$data = wp_json_encode( $data );
 		
 		$args = [
 			'headers' => array(
 			   'Content-Type' => 'application/json',
-			   'Authorization' => 'Basic cGNjc1N5bmM6c2xfZ2xvYmFsX2lkXzAwMQ==',
+			   'Authorization' => 'Basic xxxxxxxxxxxxxx',
 			),
 			'method' => 'POST',
 			'body'   => $data,
@@ -117,9 +117,6 @@ function bamboo_user_signin_cf7_data( $form_data ) {
 		}
 		
 		$result = json_decode( wp_remote_retrieve_body( $response ) ); // decode the JSON feed
-		//echo '<pre>';
-		//print_r($result);
-		//echo '</pre>';
 		$errmsg = $result->RawData->Message;
 		
 		if ( $result->RawData->Status == 'Ok'){
@@ -128,11 +125,10 @@ function bamboo_user_signin_cf7_data( $form_data ) {
 				$_SESSION['error_user'] = $result->RawData->Status;
 				$_SESSION['user_name'] = $result->RawData->Name;
 				$tokenKey = $result->RawData->TokenisedKey;
-				//print_r($tokenKey);
-				header("Location: https://development.pccsuk.com/bamboo_development/BambooMobile/getUserTokenusedData/$tokenKey/mysales/#");
+				header("Location: /bamboo_development/BambooMobile/getUserTokenusedData/$tokenKey/mysales/#");
 				exit();
 				} else {
-				header("Location: https://www.skylinemicrosites.co.uk/bamboo-mobile/?accSales=access-fail");
+				header("Location: /bamboo-mobile/?accSales=access-fail");
 				exit();	
 				}
 	}
@@ -153,14 +149,14 @@ function bamboo_user_signin_cf7_data( $form_data ) {
 	   
 		$email = sanitize_text_field($data['email']);
 			
-		$url = 'https://development.pccsuk.com/bamboo_development/RestAPI/BambooMobileViewAPI/';
+		$url = '/bamboo_development/RestAPI/BambooMobileViewAPI/';
 		
 		$data = wp_json_encode( $data );
 		
 		$args = [
 			'headers' => array(
 			   'Content-Type' => 'application/json',
-			   'Authorization' => 'Basic cGNjc1N5bmM6c2xfZ2xvYmFsX2lkXzAwMQ==',
+			   'Authorization' => 'Basic xxxxxxxxxxxxx',
 			),
 			'method' => 'POST',
 			'body'   => $data,
@@ -174,9 +170,6 @@ function bamboo_user_signin_cf7_data( $form_data ) {
 		}
 		
 		$result = json_decode( wp_remote_retrieve_body( $response ) ); // decode the JSON feed
-		//echo '<pre>';
-		//print_r($result);
-		//echo '</pre>';
 		$errmsg = $result->RawData->Message;
 		
 		if ( $result->RawData->Status == 'Ok'){
@@ -185,11 +178,10 @@ function bamboo_user_signin_cf7_data( $form_data ) {
 				$_SESSION['error_user'] = $result->RawData->Status;
 				$_SESSION['user_name'] = $result->RawData->Name;
 				$tokenKey = $result->RawData->TokenisedKey;
-				//print_r($tokenKey);
-				header("Location: https://development.pccsuk.com/bamboo_development/BambooMobile/getUserTokenusedData/$tokenKey/yourdetails/");
+				header("Location: /bamboo_development/BambooMobile/getUserTokenusedData/$tokenKey/yourdetails/");
 				exit();
 				} else {
-				header("Location: https://www.skylinemicrosites.co.uk/bamboo-mobile/your-details/?yrdetails=login-fail");
+				header("Location: /bamboo-mobile/your-details/?yrdetails=login-fail");
 				exit();	
 				}
 	}
@@ -210,24 +202,20 @@ function bamboo_user_signin_cf7_data( $form_data ) {
 			'PageType' => $form_data['form-name'],
 		];
 		
-		$url = 'https://development.pccsuk.com/bamboo_development/RestAPI/BambooMobileViewAPI/';
+		$url = '/bamboo_development/RestAPI/BambooMobileViewAPI/';
 
 		$data = wp_json_encode( $data );
 		
 		$args = [
 			'headers' => array(
 				'Content-Type' => 'application/json',
-				'Authorization' => 'Basic cGNjc1N5bmM6c2xfZ2xvYmFsX2lkXzAwMQ==',
+				'Authorization' => 'Basic xxxxxxxxxxxx',
 			),
 			'method' => 'POST',
 			'body'   => $data,
 		];
 
 		$response = wp_remote_post( $url, $args );
-		
-		//echo '<pre>';
-		//print_r ($response);
-		//echo '</pre>';
 		
 		if ( is_wp_error( $response ) ) {
 			$submission->set_response($response->get_error_message());
@@ -236,17 +224,11 @@ function bamboo_user_signin_cf7_data( $form_data ) {
 		}
 		
 		$result = json_decode( wp_remote_retrieve_body( $response ) ); // decode the JSON feed
-		//echo '<pre>';
-		//print_r($result);
-		//echo '</pre>';
 		$errmsg = $result->RawData->Message;
 			
 		if ( $result->RawData->Status == 'Ok'){
-				//$submission->set_response("success");
 				$properties['messages']['mail_sent_ok'] = $errmsg;
-				
 			} else {
-				//$submission->set_response("error happened");
 				$properties['messages']['mail_sent_ok'] = $errmsg;
 			}
 			
@@ -283,14 +265,14 @@ function bamboo_user_signin_cf7_data( $form_data ) {
 			'PageType' => $form_data['form-name'],
 			]; 
 			
-        $url = 'https://development.pccsuk.com/bamboo_development/RestAPI/BambooMobileViewAPI/';
+        $url = '/bamboo_development/RestAPI/BambooMobileViewAPI/';
 		
 		$data = wp_json_encode( $data );
 
         $args = [
 		'headers' => array(
            'Content-Type' => 'application/json',
-		   'Authorization' => 'Basic cGNjc1N5bmM6c2xfZ2xvYmFsX2lkXzAwMQ==',
+		   'Authorization' => 'Basic xxxxxxxxxxxxxxx',
         ),
 		'method' => 'POST',
 		'body'   => $data,
@@ -305,9 +287,7 @@ function bamboo_user_signin_cf7_data( $form_data ) {
 		}
 		
 		$result = json_decode( wp_remote_retrieve_body( $response ) ); // decode the JSON feed
-		 // echo '<pre>';
-		//  print_r( $result );
-		 // echo '</pre>';
+		 
 		if ( $result->RawData->Status == 'Ok'){
 			$_SESSION['current_user'] = $form_data['your-email'];
 			$_SESSION['bm_account']= $result->RawData->BMAccountID;
@@ -317,9 +297,6 @@ function bamboo_user_signin_cf7_data( $form_data ) {
 			$_SESSION['user_name'] = $result->RawData->uname;
 			$errmsg = "Welcome to Bamboo Mobile, " . $result->RawData->uname;
 			$properties['messages']['mail_sent_ok'] = $errmsg;
-			//$tokenKey = $result->RawData->TokenisedKey;
-			//header("Location: https://development.pccsuk.com/bamboo_development/BambooMobile/getUserTokenusedData/$tokenKey/yourdetails");
-			//exit();
 		} else {
 			$properties['messages']['mail_sent_ok'] = "API fail";
 		}
@@ -348,14 +325,14 @@ function bamboo_user_signin_cf7_data( $form_data ) {
 			'PageType' => $form_data['form-name'],
 		]; 
 			
-        $url = 'https://development.pccsuk.com/bamboo_development/RestAPI/BambooMobileViewAPI/';
+        $url = '/bamboo_development/RestAPI/BambooMobileViewAPI/';
 		
 		$data = wp_json_encode( $data );
 		
 		$args = [
 			'headers' => array(
 			   'Content-Type' => 'application/json',
-			   'Authorization' => 'Basic cGNjc1N5bmM6c2xfZ2xvYmFsX2lkXzAwMQ=='
+			   'Authorization' => 'Basic xxxxxxxxxxxxx'
 			),
 			'method' => 'POST',
 			'body'   => $data,
@@ -372,8 +349,6 @@ function bamboo_user_signin_cf7_data( $form_data ) {
 		
 		$result = json_decode( wp_remote_retrieve_body( $response ) ); // decode the JSON feed
 		
-		//$errmsg = "Welcome to Bamboo Mobile, " . $form_data['first-name'];
-				
 		if ( $result->RawData->Status == 'Ok'){
 			$_SESSION['current_user'] = $form_data['username'];
 			$_SESSION['bm_account']= $result->RawData->BMAccountID;
@@ -383,19 +358,13 @@ function bamboo_user_signin_cf7_data( $form_data ) {
 			$_SESSION['user_name'] = $form_data['first-name'] . ' ' . $form_data['last-name'];
 			$_SESSION['error_user'] = $result->RawData->BMAccountID;
 			$tokenKey = $result->RawData->TokenisedKey;
-			header("Location: https://development.pccsuk.com/bamboo_development/BambooMobile/getUserTokenusedData/$tokenKey/yourdetails");
+			header("Location: /bamboo_development/BambooMobile/getUserTokenusedData/$tokenKey/yourdetails");
 			exit();
 		} 
 		if ( $result->ErrorCode == 'EmailExist'){
 			$_SESSION['error_user'] = $result->ErrorCode;
 			$_SESSION['signup_message'] = $result->ErrorDescription;
-			//header("Location: https://www.skylinemicrosites.co.uk/bamboo-mobile/your-details/");
-			//exit();
-			//wp_redirect( 'https://www.skylinemicrosites.co.uk/bamboo-mobile/your-details/?nomail=exist' );
-			//exit();	
-			//$errmsg = $result->ErrorDescription;
-			//$properties['messages']['mail_sent_ok'] = $errmsg;
-		}
+			}
 		
 			$wpcf7->set_properties($properties);
 	}
@@ -459,35 +428,14 @@ function bamboo_user_signin_cf7_data( $form_data ) {
 			$data[Account_details] = $account_data;
 		}
 		
-		/*$data = [
-			'Manufacturer' => $form_data['manufacturer-name1'],
-			'Model' => $form_data['model-name1'],
-			'MobilePhoneNetwork' => $form_data['network-name1'],
-			'CustomerGrade' => $form_data['grade-name1'],
-			'OfferPrice' => $form_data['offer-price1'],
-			'Manufacturer' => $form_data['manufacturer-name2'],
-			'Model' => $form_data['model-name2'],
-			'MobilePhoneNetwork' => $form_data['network-name2'],
-			'CustomerGrade' => $form_data['grade-name2'],
-			'OfferPrice' => $form_data['offer-price2'],
-			'Customer' => $form_data['customer-name'],
-			'SendType' => $form_data['send-type'],
-			'TradePackType' => $form_data['trade-packtype'],
-			'PageType' => $form_data['page-type'],
-		];*/
-		
-		$url = 'https://development.pccsuk.com/bamboo_development/RestAPI/BambooMobileViewAPI/';
+		$url = '/bamboo_development/RestAPI/BambooMobileViewAPI/';
 		
 		$data = wp_json_encode( $data );
 
-		//echo '<pre>';
-		//print_r($data);
-		//echo '</pre>';
-		
-        $args = [
+		$args = [
 			'headers' => array(
 			   'Content-Type' => 'application/json',
-			   'Authorization' => 'Basic cGNjc1N5bmM6c2xfZ2xvYmFsX2lkXzAwMQ==',
+			   'Authorization' => 'Basic xxxxxxxxxxxxx',
 			   'Access-Control-Allow-Origin' => '*',
 			),
 			'method' => 'POST',
@@ -503,10 +451,6 @@ function bamboo_user_signin_cf7_data( $form_data ) {
 		}
 		
 		$result = json_decode( wp_remote_retrieve_body( $response ) ); // decode the JSON feed
-		
-		//echo '<pre>';
-		//print_r( $result );
-		//echo '</pre>';
 		
 		$errmsg = $result->RawData->Message;
 				
@@ -532,12 +476,8 @@ function bamboo_user_signin_cf7_data( $form_data ) {
 			$_SESSION['tradepackType'] = $form_data['send-type'];
 			$_SESSION['bm_account']= $result->RawData->BMAccountID;
 			$_SESSION['job_id'] = $result->RawData->JobID;
-			
-					
-			//header("Location: https://skylinemicrosites.co.uk/bamboo-mobile/confirmation/?jobOrder=$orderID&productID=&");
-				//exit();	
+			//exit();	
 		} else {
-			//$submission->set_response("error happened");
 			$properties['messages']['mail_sent_ok'] = "api failed";
 		}
 		
@@ -550,8 +490,6 @@ function bamboo_user_signin_cf7_data( $form_data ) {
 		$properties = $wpcf7->get_properties();
 		
 		$email = sanitize_text_field($form_data['useremail']);
-		//$new_password = sanitize_text_field($form_data['new-password']);
-		//$confirm_password = sanitize_text_field($form_data['password-confirm']);
 		$pagetype = sanitize_text_field($form_data['form-name']);
     
         $data =	[
@@ -559,14 +497,14 @@ function bamboo_user_signin_cf7_data( $form_data ) {
 			'PageType' => $pagetype,
 		];
 					
-		$url = 'https://development.pccsuk.com/bamboo_development/RestAPI/BambooMobileViewAPI/';
+		$url = '/bamboo_development/RestAPI/BambooMobileViewAPI/';
 		
 		$data = wp_json_encode( $data );
 		
 		$args = [
 			'headers' => array(
 			  'Content-Type' => 'application/json',
-			   'Authorization' => 'Basic cGNjc1N5bmM6c2xfZ2xvYmFsX2lkXzAwMQ==',
+			   'Authorization' => 'Basic xxxxxxxxxxx',
 			),
 			'method' => 'POST',
 			'body'   => $data,
@@ -580,9 +518,6 @@ function bamboo_user_signin_cf7_data( $form_data ) {
 		}
 		
 		$result = json_decode( wp_remote_retrieve_body( $response ) ); // decode the JSON feed
-		//echo '<pre>';
-		//print_r($result);
-		//echo '</pre>';
 		$errmsg = $result->RawData->Message;
 		if ( $result->RawData->Status == 'Ok'){
 			
@@ -614,14 +549,14 @@ function bamboo_user_signin_cf7_data( $form_data ) {
 			'PageType' => $pagetype,
 		];
 					
-		$url = 'https://development.pccsuk.com/bamboo_development/RestAPI/BambooMobileViewAPI/';
+		$url = '/bamboo_development/RestAPI/BambooMobileViewAPI/';
 		
 		$data = wp_json_encode( $data );
 		
 		$args = [
 			'headers' => array(
 			  'Content-Type' => 'application/json',
-			   'Authorization' => 'Basic cGNjc1N5bmM6c2xfZ2xvYmFsX2lkXzAwMQ==',
+			   'Authorization' => 'Basic xxxxxxxxxxxxxxxx',
 			),
 			'method' => 'POST',
 			'body'   => $data,
@@ -635,9 +570,6 @@ function bamboo_user_signin_cf7_data( $form_data ) {
 		}
 		
 		$result = json_decode( wp_remote_retrieve_body( $response ) ); // decode the JSON feed
-		//echo '<pre>';
-		//print_r($result);
-		//echo '</pre>';
 		$errmsg = $result->RawData->Message;
 		if ( $result->RawData->Status == 'Ok'){
 			

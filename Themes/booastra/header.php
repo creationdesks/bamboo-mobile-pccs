@@ -28,15 +28,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php 
 if ( is_page('16816') ){
 	WC()->cart->empty_cart();
-	//header("Refresh:0");
 }
 ?>
-<?php //if( $_REQUEST['cartp-id1'] != '' ){ WC()->cart->empty_cart();	} ?>
 <script>
 jQuery(document).ready(function ($) {
  if ($("#signinForm").hasClass("invalid")){
 	   setTimeout( function(){
-		//console.log("Hi123");
 		jQuery('#accLogin a').trigger('click');
 	}, 1500 ); 
   }
@@ -46,7 +43,6 @@ jQuery(document).ready(function ($) {
 jQuery(document).ready(function ($) {
 if ($("#orderForm").hasClass("invalid")){
 	   setTimeout( function(){
-		//console.log("Hi123");
 		jQuery('.sessionOut .elementor-widget-container ul li a').trigger('click');
 		jQuery('#elementor-popup-modal-18702').hide();
 	}, 1500 ); 
@@ -57,7 +53,6 @@ if ($("#orderForm").hasClass("invalid")){
 jQuery(document).ready(function ($) {
 if ($("#yourdetailsForm").hasClass("invalid")){
 	   setTimeout( function(){
-		//console.log("Hi123");
 		jQuery('#yrdetails-login a').trigger('click');
 	}, 1500 ); 
   }
@@ -80,7 +75,7 @@ if ( is_page('19789') ){
 
   jQuery.ajaxSetup({
     headers: {
-      "x-api-key": "Y8L7N4WBr361XT8gHT5bc2g5ycw1ECPao3EWrs6a"
+      "x-api-key": "xxxxxxxxxxxxxxxxx"
     }
   });
 
@@ -98,8 +93,6 @@ if ( is_page('19789') ){
 							if(!isNaN(parseInt(item['address'][0])))
 							{
 								numaddArr.push(item);
-								//numaddArr[parseInt(item['address'][0].replace(/[a-zA-Z-_]/,""))] = item;
-								
 							}
 							else{
 								strAdd.push(item);
@@ -107,11 +100,8 @@ if ( is_page('19789') ){
 						});
 						
 						if(numaddArr.length > 0){
-							//console.log(numaddArr);							
 							numaddArrNew = numaddArr.sort((a,b) => (parseInt(b['address'][0].replace(/[a-zA-Z-_]/,"")) > parseInt(a['address'][0].replace(/[a-zA-Z-_]/,""))) ? -1 : ((parseInt(a['address'][0].replace(/[a-zA-Z-_]/,"")) > parseInt(b['address'][0].replace(/[a-zA-Z-_]/,""))) ? 1 : 0));
-							//console.log(numaddArrNew);
 							numaddArr = numaddArrNew.sort();
-							//console.log(numaddArr);
 							jQuery.each(numaddArr,function(i,item){
 								if(typeof numaddArr[i] != null){
 									addressArr.push(item);
@@ -132,7 +122,6 @@ if ( is_page('19789') ){
 		$option.text("Please Select Address");
 	    $option.data("addressdetails", "");
 		$dropdown.append($option);
-        //postcodeAddresses.sort();
         jQuery.each(postcodeAddresses, function () {
           var $option = jQuery("<option />");
           $option.text(this.address.join(", ") + ", " + this.postcode);
@@ -191,9 +180,8 @@ jQuery(document).ready(function($) {
 	setInterval(function(){
 	$('.elementor-menu-cart__main .widget_shopping_cart_content .woocommerce-cart-form__contents .cart_item .product-remove .remove_from_cart_button').on('click', function(){
 			setTimeout(function() {
-				//$("[name='update_cart']").trigger("click"); // trigger cart update
 				location.reload();
-			}, 1000 ); // 1 second delay, half a second (500) seems comfortable too
+			}, 1000 ); 
 		});
 	}, 1000);
 	var prepopulateEmail = $('.woocommerce-checkout-review-order-table tbody tr:first-child .product-name .variation .variation-Emailaddress .wcpa_cart_val').text();
@@ -203,16 +191,6 @@ jQuery(document).ready(function($) {
 	var selectedOption = $('#select2-uacf7_product_dropdown-561-options-container').text();
 	$('#device-selected').val(selectedOption);
 	}, 0);
-	
-	
-	//$('#place_order').click(function (e) {
-	//if ( $("#paymentDetails div[data-class='wpcf7cf_group'] input").hasClass('error')){
-	//		$('html, body').animate({
-	//			scrollTop: $('#paymentDetails').offset().top
-	//		}, 2000);
-	//		e.preventDefault();
-	//}
-	//});
 	
 });
 </script>
@@ -246,15 +224,6 @@ jQuery('.wpcf7-form').submit(function() {
 
 <script>
 jQuery(document).ready(function($) {
-	//setTimeout(function(){
-//$('ul#menu-menu-2').hover(function(){
- //   $('#overlay').fadeTo(200, 1);
-//}, function(){
- //   $('#overlay').fadeTo(200, 0, function(){
-//        $(this).hide();
-//	});
-//}); 
-	//}, 1000);
 	$('#is-ajax-search-result-1646').on('focusout', function() {
            $('#overlay').fadeTo(200, 1);
 		   $('#overlay').css({display:'block','top':'10%'});
@@ -316,7 +285,7 @@ jQuery(document).ready(function($) {
 <script>
 jQuery(document).ready(function($) {
 	$('.sessionIn').on('click', function() {
-			window.location.href = 'https://development.pccsuk.com/bamboo_development/BambooMobile/getUserTokenusedData/logout/';
+			window.location.href = '/bamboo_development/BambooMobile/getUserTokenusedData/logout/';
 			});
 	});	
 </script>
@@ -324,7 +293,7 @@ jQuery(document).ready(function($) {
 <script>
 jQuery(document).ready(function($) {
 	$('.sessionAccount').on('click', function() {
-			window.location.href = "https://development.pccsuk.com/bamboo_development/BambooMobile/accountOverview/";
+			window.location.href = "/bamboo_development/BambooMobile/accountOverview/";
 			});	
 });
 </script>
@@ -333,7 +302,7 @@ jQuery(document).ready(function($) {
 jQuery(document).ready(function($) {
 	$('.sessionAccount').on('click', function() {
 			var tokenKey = "<?php echo $_SESSION['token_user'];?>";
-			window.location.href = "https://development.pccsuk.com/bamboo_development/BambooMobile/getUserTokenusedData/?TokenisedKey="+tokenKey;
+			window.location.href = "/bamboo_development/BambooMobile/getUserTokenusedData/?TokenisedKey="+tokenKey;
 			});	
 });  
 </script>
@@ -426,7 +395,6 @@ jQuery(document).ready(function($) {
 <?php } ?>
 <script>
 jQuery(document).ready(function($) {
-	// Iterating over all <li> elements to replace a word
 	$('.product-list.uc-items-wrapper .product-items .product-text a.product-text-name').each(function(){
 		$(this).text($(this).text().replace(/Samsung/g, ""));
 		$(this).text($(this).text().replace(/Apple/g, ""));
@@ -466,7 +434,6 @@ if ( $_SESSION['guest_user'] != '' ) {?>
 <script>
 jQuery(document).ready(function($) {
 	var userSigned = "<?php echo $_SESSION['guest_user'];?>";
-	//console.log(userSigned);
 	$('.email-required_parent input').val( userSigned );
 });
 </script>

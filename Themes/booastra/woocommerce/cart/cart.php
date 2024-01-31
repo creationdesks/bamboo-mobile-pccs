@@ -23,16 +23,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 	<?php do_action( 'woocommerce_before_cart_table' ); ?>
 
 	<table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0">
-		<!-- <thead>
-			<tr>
-				<th class="product-remove">&nbsp;</th>
-				<th class="product-thumbnail">&nbsp;</th>
-				<th class="product-name"><?php //esc_html_e( 'Product', 'woocommerce' ); ?></th>
-				<th class="product-price"></th>
-				<th class="product-quantity"></th>
-				<th class="product-subtotal"></th>
-			</tr>
-		</thead> -->
+		
 		<tbody>
 			<?php do_action( 'woocommerce_before_cart_contents' ); ?>
 

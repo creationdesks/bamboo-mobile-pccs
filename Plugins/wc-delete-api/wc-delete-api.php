@@ -29,7 +29,6 @@ add_action (
 	}
 );	
 
-// https://www.skylinemicrosites.co.uk/bamboo-mobile/wp-json/wp/v2/bamboo
 function removedcart( WP_REST_Request $request ) {
 		
 			$request_params = $request->get_params();

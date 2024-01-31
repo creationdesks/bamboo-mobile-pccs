@@ -46,4 +46,4 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
  </form> 
  <div class="main-selling-btn btn" id="place_order"><span>Sell my device</span></div>
  <?php echo do_shortcode( '[elementor-template id="52221"]' );?>
-<?php //do_action( 'woocommerce_after_checkout_form', $checkout ); ?>
+

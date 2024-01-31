@@ -20,7 +20,7 @@ add_action('init', 'register_my_session');
         $theme->get('Version') // this only works if you have Version in the style header
     );
 		if ( is_page('1102')){
-			//wp_register_style( 'combined_inner_sliders-css', '//www.skylinemicrosites.co.uk/bamboo-mobile/wp-content/uploads/elementor/combined_inner_sliders.css', false, '', 'all' );
+			//wp_register_style( 'combined_inner_sliders-css', '/bamboo-mobile/wp-content/uploads/elementor/combined_inner_sliders.css', false, '', 'all' );
 			//wp_enqueue_style( 'combined_inner_sliders-css' );
 		}
 		if ( is_page([19789,18731])){
@@ -197,7 +197,7 @@ function bbloomer_cart_refresh_update_qty() {
 			jQuery('.quantity').on('change', 'input.qty', function(){
 				jQuery( '.actions button' ).trigger( 'click' );
 				if (jQuery(this).val() == 2){
-					//jQuery( '.actions button' ).trigger( 'click' );
+					
 					if (jQuery('#mini-cart-count').val() == 2) {
 						setTimeout(function(){jQuery( '#warningMessage' ).trigger( 'click' )}, 0);	
 						jQuery('.more-devices').on('click', function() { setTimeout(function(){jQuery( '#warningMessage' ).trigger( 'click' )}, 0); });
@@ -387,16 +387,14 @@ function current_session_cart_values_print() {
 			$product_id = $values['product_id'];
 			$_product =  wc_get_product( $values['data']->get_id()); 
 			$variation_id = $_product->get_id();
-			//$getProductDetail = wc_get_product( $values['product_id'] );
-            $variation_data = $_product->get_variation_attributes();
+			$variation_data = $_product->get_variation_attributes();
 			$variation_detail = woocommerce_get_formatted_variation( $variation_data, true );
 			$variation_price = get_post_meta($values['variation_id'] , '_price', true);
 			$network = $_product->get_attribute( 'pa_network' );
 			$memory = $_product->get_attribute( 'pa_memory-size' );
 			$condition = $_product->get_attribute( 'pa_condition' );
 			$product_brand = get_the_terms( $product_id, 'pwb-brand' );
-			//echo "  variations: ".$variation_detail."<br>";
-						
+					
 			$jobsAarray[$i]['memoryValue'] = $memory;
 			$jobsAarray[$i]['variationsPrice'] = $variation_price;
 			$jobsAarray[$i]['current-variation'] = $variation_id;
@@ -475,9 +473,7 @@ function current_session_cart_values_print() {
 		echo "<b id='brandName2'>" .$jobsAarray[1]['Manufacturer'] ."</b>";
 		echo "<b id='wooTotal'>" . $totalPrice ."</b>";
 	}
-		
-	//echo $jobsAarray[0]['quantityValue']."<br>";
-	//Print_r($jobsAarray);
+	
 	$current_cart_items = ob_get_clean();
 	return $current_cart_items;
 }
@@ -488,7 +484,7 @@ add_shortcode( 'cart_session_message', 'cart_session_message_print' );
 function cart_session_message_print() {
 
 	if ( WC()->cart->is_empty() ) {
-		$message = "<h3 style='padding:0 50px;text-align:center;'>Your basket is empty please add a device to start selling.</h3><a class='main-selling-btn' href='https://www.skylinemicrosites.co.uk/bamboo-mobile/start-selling/'>Start Selling</a>";
+		$message = "<h3 style='padding:0 50px;text-align:center;'>Your basket is empty please add a device to start selling.</h3><a class='main-selling-btn' href='/bamboo-mobile/start-selling/'>Start Selling</a>";
 		return $message;
 	}
 }
@@ -641,14 +637,14 @@ function send_comment_data_syline(){
 			'PageType' => $_POST['pagetype'],
 		]; 
 			
-        $url = 'https://development.pccsuk.com/bamboo_development/RestAPI/BambooMobileViewAPI/';
+        $url = '/bamboo_development/RestAPI/BambooMobileViewAPI/';
 		
 		$data = wp_json_encode( $data );
 		
 		$args = [
 			'headers' => array(
 			   'Content-Type' => 'application/json',
-			   'Authorization' => 'Basic cGNjc1N5bmM6c2xfZ2xvYmFsX2lkXzAwMQ=='
+			   'Authorization' => 'Basic xxxxxxxxxxxxxxxxx'
 			),
 			'method' => 'POST',
 			'body'   => $data,
@@ -783,7 +779,7 @@ function mobile_brands_shortcode_list() {
                     </h3>
                     <div class="BMDTSC-SecondTitle">
                         <h6>Not sure what model your device is? Don’t worry, let us know, we’ll be happy to help</h6>
-                        <a href="https://www.skylinemicrosites.co.uk/bamboo-mobile/contact/"><i class="Bicon-Right-arrow"></i></a>
+                        <a href="/bamboo-mobile/contact/"><i class="Bicon-Right-arrow"></i></a>
                     </div>	
 					<div class="BM-ProductScrollSlider">
 					<?php while ($query->have_posts()) {
@@ -803,7 +799,7 @@ function mobile_brands_shortcode_list() {
 							</div>
 						<?php } ?>
 					</div>
-					<?php $brandCategory = 'https://www.skylinemicrosites.co.uk/bamboo-mobile/shop/?pwb-brand='.strtolower($row2['tab_title']).'&product_cat=mobile-phones';?>
+					<?php $brandCategory = '/bamboo-mobile/shop/?pwb-brand='.strtolower($row2['tab_title']).'&product_cat=mobile-phones';?>
 					<a class="BMDTSC-SecondTitleBottom" href="<?php echo $brandCategory; ?>">
                         <h5>See more devices</h5>
                         <i class="Bicon-Right-arrow"></i>
@@ -883,7 +879,7 @@ function tablets_brands_shortcode_list() {
                     </h3>
                     <div class="BMDTSC-SecondTitle">
                         <h6>Not sure what model your device is? Don’t worry, let us know, we’ll be happy to help</h6>
-                        <a href="https://www.skylinemicrosites.co.uk/bamboo-mobile/contact/"><i class="Bicon-Right-arrow"></i></a>
+                        <a href="/bamboo-mobile/contact/"><i class="Bicon-Right-arrow"></i></a>
                     </div>	
 					<div class="BM-ProductScrollSlider">
 					<?php while ($query->have_posts()) {
@@ -903,7 +899,7 @@ function tablets_brands_shortcode_list() {
 							</div>
 						<?php } ?>
 					</div>
-					<?php $brandCategory = 'https://www.skylinemicrosites.co.uk/bamboo-mobile/shop/?pwb-brand='.strtolower($row2['tab_title']).'&product_cat=tablets';?>
+					<?php $brandCategory = '/bamboo-mobile/shop/?pwb-brand='.strtolower($row2['tab_title']).'&product_cat=tablets';?>
 					<a class="BMDTSC-SecondTitleBottom" href="<?php echo $brandCategory; ?>">
                         <h5>See more devices</h5>
                         <i class="Bicon-Right-arrow"></i>
@@ -980,7 +976,7 @@ function watch_brands_shortcode_list() {
                     </h3>
                     <div class="BMDTSC-SecondTitle">
                         <h6>Not sure what model your device is? Don’t worry, let us know, we’ll be happy to help</h6>
-                        <a href="https://www.skylinemicrosites.co.uk/bamboo-mobile/contact/"><i class="Bicon-Right-arrow"></i></a>
+                        <a href="/bamboo-mobile/contact/"><i class="Bicon-Right-arrow"></i></a>
                     </div>	
 					<div class="BM-ProductScrollSlider">
 					<?php while ($query->have_posts()) {
@@ -1000,7 +996,7 @@ function watch_brands_shortcode_list() {
 							</div>
 						<?php } ?>
 					</div>
-					<?php $brandCategory = 'https://www.skylinemicrosites.co.uk/bamboo-mobile/shop/?pwb-brand='.strtolower($row2['tab_title']).'&product_cat=watches';?>
+					<?php $brandCategory = '/bamboo-mobile/shop/?pwb-brand='.strtolower($row2['tab_title']).'&product_cat=watches';?>
 					<a class="BMDTSC-SecondTitleBottom" href="<?php echo $brandCategory; ?>">
                         <h5>See more devices</h5>
                         <i class="Bicon-Right-arrow"></i>
@@ -1037,7 +1033,7 @@ function all_mobile_brands_shortcode_list( $atts ) {
 		
 		foreach ($brands as $row):
 		$titles = strtolower($row['tab_title']);
-        echo '<li class="list '.strtolower($row['tab_title']).'"><a href="https://www.skylinemicrosites.co.uk/bamboo-mobile/shop/?pwb-brand='.strtolower($row['tab_title']).'&product_cat=mobile-phones"><span class="list-text">Sell all '.           
+        echo '<li class="list '.strtolower($row['tab_title']).'"><a href="/bamboo-mobile/shop/?pwb-brand='.strtolower($row['tab_title']).'&product_cat=mobile-phones"><span class="list-text">Sell all '.           
         ucfirst($titles).' Phones</span><span class="list-icon"><i aria-hidden="true" class="iconbamboo icon-bambooright-arrow"></i></span></a></li>';
 		endforeach;
 		?>
@@ -1067,7 +1063,7 @@ function all_tablet_brands_shortcode_list( $atts ) {
 		
 		foreach ($brands as $row):
 		$titles = strtolower($row['tab_title']);
-        echo '<li class="list '.strtolower($row['tab_title']).'"><a href="https://www.skylinemicrosites.co.uk/bamboo-mobile/shop/?pwb-brand='.strtolower($row['tab_title']).'&product_cat=tablets"><span class="list-text">Sell all '.           
+        echo '<li class="list '.strtolower($row['tab_title']).'"><a href="/bamboo-mobile/shop/?pwb-brand='.strtolower($row['tab_title']).'&product_cat=tablets"><span class="list-text">Sell all '.           
         ucfirst($titles).' Tablets</span><span class="list-icon"><i aria-hidden="true" class="iconbamboo icon-bambooright-arrow"></i></span></a></li>';
 		endforeach;
 		?>
@@ -1097,7 +1093,7 @@ function all_watch_brands_shortcode_list( $atts ) {
 		
 		foreach ($brands as $row):
 		$titles = strtolower($row['tab_title']);
-        echo '<li class="list '.strtolower($row['tab_title']).'"><a href="https://www.skylinemicrosites.co.uk/bamboo-mobile/shop/?pwb-brand='.strtolower($row['tab_title']).'&product_cat=watches"><span class="list-text">Sell all '.           
+        echo '<li class="list '.strtolower($row['tab_title']).'"><a href="/bamboo-mobile/shop/?pwb-brand='.strtolower($row['tab_title']).'&product_cat=watches"><span class="list-text">Sell all '.           
         ucfirst($titles).' watches</span><span class="list-icon"><i aria-hidden="true" class="iconbamboo icon-bambooright-arrow"></i></span></a></li>';
 		endforeach;
 		?>
@@ -1118,9 +1114,9 @@ function bamboo_sales_status_shortcode() {
 	$tokenKey = $_SESSION['token_user'];
 	
 	if ($booking_id){
-		echo '<a href="https://development.pccsuk.com/bamboo_development/BambooMobile/getUserTokenusedData/?TokenisedKey='.$tokenKey.'&OrderID='.$order_id.'&BookingID='.$booking_id.'" class="sales-status">Check Sales Status</a>';
+		echo '<a href="/bamboo_development/BambooMobile/getUserTokenusedData/?TokenisedKey='.$tokenKey.'&OrderID='.$order_id.'&BookingID='.$booking_id.'" class="sales-status">Check Sales Status</a>';
 	} else {
-		echo '<a href="https://development.pccsuk.com/bamboo_development/BambooMobile/getUserTokenusedData/?TokenisedKey='.$tokenKey.'&accountOverview=MySales" class="sales-status">Check Sales Status</a>';
+		echo '<a href="/bamboo_development/BambooMobile/getUserTokenusedData/?TokenisedKey='.$tokenKey.'&accountOverview=MySales" class="sales-status">Check Sales Status</a>';
 	}
 	
 	$current_job_status = ob_get_clean();
@@ -1140,7 +1136,7 @@ function bamboo_sales_delivery_note_print_shortcode() {
 	$encoded_value = str_replace('==','||', $embed_order);
 	
 	if ($order_id){
-		echo '<a href="https://development.pccsuk.com/bamboo_development/BambooMobile/reprintTradePack/'. $encoded_value .'" id="delivery_Note" target="_blank"><i aria-hidden="true" class="iconbamboo icon-bambootick-circle"></i></a>';
+		echo '<a href="/bamboo_development/BambooMobile/reprintTradePack/'. $encoded_value .'" id="delivery_Note" target="_blank"><i aria-hidden="true" class="iconbamboo icon-bambootick-circle"></i></a>';
 	} else{
 		echo '<a href="" id="delivery_Note"><i aria-hidden="true" class="iconbamboo icon-bambootick-circle"></i></a>';
 	}
@@ -1220,14 +1216,14 @@ function send_cart_data_syline(){
 			'NonceKey' => $_POST['nonce-key'], 
 		];
 
-		$url = 'https://development.pccsuk.com/bamboo_development/RestAPI/BambooMobileViewAPI/';
+		$url = '/bamboo_development/RestAPI/BambooMobileViewAPI/';
 		
 		$data = wp_json_encode( $data );
 				
 		$args = [
 			'headers' => array(
 			   'Content-Type' => 'application/json',
-			   'Authorization' => 'Basic cGNjc1N5bmM6c2xfZ2xvYmFsX2lkXzAwMQ=='
+			   'Authorization' => 'Basic xxxxxxxxxxxxxxxxxx'
 			),
 			'method' => 'POST',
 			'body'   => $data,
@@ -1241,15 +1237,9 @@ function send_cart_data_syline(){
 		}
 		
 		$result = json_decode( wp_remote_retrieve_body( $response ) ); // decode the JSON feed
-		
-		//echo '<pre>';
-		//print_r( $result );
-		//echo '</pre>';
-	}
+		}
 	
 }	
-
-//add_filter( 'woocommerce_store_api_disable_nonce_check', '__return_true' );
 
 add_action (
 	'rest_api_init',
@@ -1269,21 +1259,10 @@ add_action (
 	}
 );	
 
-// https://www.skylinemicrosites.co.uk/bamboo-mobile/wp-json/wp/v2/bamboo
 
 function removedcart( WP_REST_Request $request ) {
-	
-//	$arr_request = json_decode( $request->get_body() );
-	//$parameters = $request->get_params();
-	//return new WP_REST_Response($arr_request, 200);
-	//eturn [
-	//	'status' =>  '12345',		
-	//;
-		
-			
-	// ( $arr_request ){
-		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_URL,"https://www.skylinemicrosites.co.uk/bamboo-mobile/cart/?remove_item=24aa110f8bb336ccb07b20578837fc4a&_wpnonce=655165dafb");
+$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL,"/bamboo-mobile/cart/?remove_item=24aa110f8bb336ccb07b20578837fc4a&_wpnonce=655165dafb");
 		curl_exec($ch);
 		curl_close($ch);
 	//	

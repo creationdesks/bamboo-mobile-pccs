@@ -160,7 +160,7 @@ jQuery(document).ready(function($) {
 	});
 	
 	$('.spu-close-popup').on('click', function() {		
-		window.location.href = 'https://www.skylinemicrosites.co.uk/bamboo-mobile/';
+		window.location.href = '/bamboo-mobile/';
 			});	
 	$('#buttonEye-password-signup').click(function (){
 		$('#buttonEye-password-signup').css({'margin-top': '-25px'});
@@ -409,7 +409,6 @@ jQuery(document).ready(function () {
 							if(!isNaN(parseInt(item['address'][0])))
 							{
 								numaddArr.push(item);
-								//numaddArr[parseInt(item['address'][0].replace(/[a-zA-Z-_]/,""))] = item;
 								
 							}
 							else{
@@ -418,11 +417,11 @@ jQuery(document).ready(function () {
 						});
 						
 						if(numaddArr.length > 0){
-							//console.log(numaddArr);							
+													
 							numaddArrNew = numaddArr.sort((a,b) => (parseInt(b['address'][0].replace(/[a-zA-Z-_]/,"")) > parseInt(a['address'][0].replace(/[a-zA-Z-_]/,""))) ? -1 : ((parseInt(a['address'][0].replace(/[a-zA-Z-_]/,"")) > parseInt(b['address'][0].replace(/[a-zA-Z-_]/,""))) ? 1 : 0));
-							//console.log(numaddArrNew);
+							
 							numaddArr = numaddArrNew.sort();
-							//console.log(numaddArr);
+							
 							jQuery.each(numaddArr,function(i,item){
 								if(typeof numaddArr[i] !== 'undefined' && numaddArr[i] != null){
 									addressArr.push(item);
@@ -432,25 +431,13 @@ jQuery(document).ready(function () {
 						}
 						
 						jQuery.merge(addressArr,strAdd);
-						
-						/*console.log(data);
-						console.log(numaddArr);
-						console.log(strAdd);
-						console.log(addressArr);*/
-						
-						//data = addressArr;
-						
 						jQuery.each(addressArr,function(i,item){					
 						   addHtml +="<li itemIndex='"+i+"'>"+item.address+", "+(typeof item.company !== 'undefined'?item.company+",  ":"")+item.city+",  "+item.county+"<em>"+item.postcode+"</em></li>";
 						});
 						jQuery(".typeahead__result").html(addHtml).fadeIn("Slow");
 						jQuery(".typeahead__result").css({display:'block'});
 						jQuery(".typeahead__result li").on("click",function(){
-							//console.log(data[jQuery(this).attr('itemIndex')]);
-							//console.log(jQuery(this),jQuery(this).text());
 							var itemData = addressArr[jQuery(this).attr('itemIndex')];
-							//console.log(itemData);
-							
 							 jQuery("#autocompleteAddress").html(
 								itemData.address.join(", ")  +
 								(itemData.company != null ? itemData.company : "") +
@@ -739,17 +726,11 @@ display: none;
 jQuery(document).ready(function($) {
 	$('.wc-product-search').select2();
 	$('#myproduct-dropdown').select2();
-	
-    // other than this array we will give "other" option
 	var ajax_search_array = []
 $("#uacf7_product_dropdown-561-options").select2({
-   //placeholder: "Choose your something",
-   //data: dataItemsList, //your dataItemsList for dynamic option
-   //...
-   //...
    tags: true,
    createTag: function (tag) {
-        // here we add %search% to search like in mysql
+       
         var name_search  = "%"+tag.term.toString().toLowerCase()+"%";
 	   if (ajax_search_array.length === 0) {
 			const ulElement = document.getElementById("select2-uacf7_product_dropdown-561-options-results");
@@ -758,7 +739,7 @@ $("#uacf7_product_dropdown-561-options").select2({
 				ajax_search_array.push(liElements[i].innerText);	
 			}
 	   }
-        // alasql search
+       
         var result = alasql('SELECT COLUMN * FROM [?] WHERE [0] LIKE ?',[ajax_search_array, name_search]);
 
         // if no result found then show "other"
@@ -830,7 +811,6 @@ if($_REQUEST['login']=='email'){
 <script>
 jQuery(document).ready(function () {
 	setTimeout( function(){
-		//console.log("Hi123");
 		jQuery('#accLogin a').trigger('click');
 	}, 3000 );  	
 });
